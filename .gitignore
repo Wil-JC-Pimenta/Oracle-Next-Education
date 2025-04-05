@@ -1,10 +1,15 @@
-# Ignorar subdiretórios que tinham repositórios git
-/ChallengeForumHub/
-/Compras/
-/ControleFinanceiro/
-/ConversorDeMoedas/
-/CotacaoCrypto/
-/ExercicioOOP/
-/MinhasMusicas/
-/OperacoesBancarias/
-/ReceitasDespesas/
+# Arquivos de build
+**/target/
+**/build/
+**/*.iml
+
+# ConfiguraÃ§Ãµes de IDE
+**/.idea/
+**/.vscode/
+
+# Arquivos temporÃ¡rios do sistema
+.DS_Store
+Thumbs.db
+
+# Logs
+**/*.log
