@@ -77,5 +77,6 @@ Sinta-se à vontade para explorar, contribuir e aprender com os projetos aqui di
 
 ---
 
-**Autor:** [Wilker J C Pimenta]
+**Aluno:** [Wilker J C Pimenta]
+**Autor:** [Alura - Oracle Next Education]
 ```

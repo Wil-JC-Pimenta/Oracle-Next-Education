@@ -90,8 +90,8 @@ public class Main {
 
 ## Autor
 
-Wilker J C Pimenta  
-Oracle Next Education (ONE) - T6 - Alura
+Aluno: Wilker J C Pimenta
+Autor: Alura - Oracle Next Education
 
 ## Notas
 
