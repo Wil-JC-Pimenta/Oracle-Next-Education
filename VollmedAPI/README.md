@@ -118,9 +118,11 @@ erDiagram
 ```
 
 ## Autor
+Alura - Oracle Next Education
 
-Aluno: Wilker J C Pimenta
-Autor: Alura - Oracle Next Education
+## Aluno
+Wilker J C Pimenta
+
 
 ## Licença
 
