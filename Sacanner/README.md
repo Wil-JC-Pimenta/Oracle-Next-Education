@@ -1,28 +1,91 @@
-# Sacanner
+# Sacanner - Sistema de Captura de Dados Financeiros
 
-## Descrição
+## Visão Geral do Projeto
 
-Este projeto é um aplicativo que coleta e exibe informações de investimento dos usuários, como nome, idade e valor do investimento mensal.
+Aplicação Java para coleta e processamento de dados de investimento pessoal, desenvolvido como parte do programa Oracle Next Education (ONE). O sistema permite registrar informações financeiras básicas através de entrada via console.
 
-## Funcionalidades
+## Objetivos
 
-- Coletar dados do usuário através de entrada no console.
-- Exibir o nome, idade e valor do investimento mensal do usuário.
+- Demonstrar o uso da classe Scanner em Java
+- Coletar e validar dados do usuário
+- Exibir informações formatadas
+- Introduzir conceitos básicos de entrada/saída em Java
 
-## Como Usar
+## Funcionalidades Principais
 
-1. Execute o programa.
-2. Insira seu nome, idade e o valor que pretende investir.
-3. O programa exibirá suas informações.
+- **Captura de dados**:
+  - Nome do investidor
+  - Idade
+  - Valor mensal de investimento
+- **Validação básica** de entrada de dados
+- **Exibição formatada** das informações coletadas
 
 ## Tecnologias Utilizadas
 
-- Java
-  
+- **Linguagem**: Java 17
+- **Bibliotecas**:
+  - java.util.Scanner (para entrada de dados)
+- **Ferramentas**:
+  - IntelliJ IDEA (ambiente de desenvolvimento recomendado)
+
+## Como Executar
+
+### Pré-requisitos
+
+- Java 17 JDK instalado
+- Maven (para gerenciamento de dependências)
+
+### Passo a Passo
+
+1. Navegue até o diretório do projeto:
+
+```bash
+cd Sacanner
+```
+
+2. Compile o código fonte:
+
+```bash
+javac src/Main.java
+```
+
+3. Execute a aplicação:
+
+```bash
+java -cp src Main
+```
+
+4. Siga as instruções no console para inserir seus dados
+
+## Fluxo do Programa
+
+1. Solicita nome do usuário
+2. Coleta a idade
+3. Pergunta sobre valor de investimento mensal
+4. Exibe todas as informações formatadas
+
+## Estrutura do Projeto
+
+```
+Sacanner/
+├── src/
+│   └── Main.java        # Classe principal com lógica de interação
+├── .gitignore           # Configurações do Git
+└── sacanner.iml         # Configuração do projeto IntelliJ
+```
+
+## Melhorias Planejadas
+
+- Adicionar validação robusta de entrada
+- Implementar cálculos de juros compostos
+- Adicionar persistência em arquivo
+- Criar interface gráfica simples
+
 ## Autor
-[Alura]
-[Oracle Next Education - T6]
 
-## Aluno
+Wilker J C Pimenta  
+Oracle Next Education (ONE) - T6 - Alura
 
-[Wilker J C Pimenta]
+## Licença
+
+Projeto educacional desenvolvido como parte do programa ONE. Não destinado para uso comercial.

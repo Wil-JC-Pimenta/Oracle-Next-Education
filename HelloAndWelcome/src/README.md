@@ -1,31 +1,61 @@
-# Projeto: Hello and Welcome
+# HelloAndWelcome - Projeto de Boas-Vindas
 
-Este projeto é um exemplo simples de um programa Java que imprime uma mensagem de boas-vindas e conta de 1 a 5.
+## Visão Geral do Projeto
 
-## Requisitos
+Projeto Java simples desenvolvido como introdução à programação, demonstrando conceitos básicos como saída de console e estruturas de repetição. Parte do programa Oracle Next Education (ONE).
 
-- Java 8 ou superior
-- IntelliJ IDEA (opcional, mas recomendado)
+## Objetivos Educacionais
+
+- Introduzir a sintaxe básica do Java
+- Demonstrar o uso de estruturas de controle
+- Mostrar saída básica no console
+- Servir como primeiro contato com a IDE IntelliJ
+
+## Funcionalidades
+
+- Exibe mensagem de boas-vindas formatada
+- Demonstra loop for para contagem de 1 a 5
+- Mostra saída formatada no console
+
+## Tecnologias Utilizadas
+
+- **Linguagem**: Java 17
+- **Ferramentas**:
+  - IntelliJ IDEA (recomendado)
+  - JDK 17+
 
 ## Como Executar
 
-1. Clone este repositório ou copie o código para um arquivo `Main.java`.
-2. Compile o arquivo com o seguinte comando:
-   ```sh
-   javac Main.java
-   ```
-3. Execute o programa:
-   ```sh
-   java Main
-   ```
+### Método 1: Via linha de comando
 
-Se estiver utilizando o IntelliJ IDEA:
-- Abra o arquivo `Main.java`.
-- Pressione `Shift + F10` ou clique no ícone de executar.
+1. Navegue até o diretório src:
+
+```bash
+cd HelloAndWelcome/src
+```
+
+2. Compile o código:
+
+```bash
+javac Main.java
+```
+
+3. Execute o programa:
+
+```bash
+java Main
+```
+
+### Método 2: Via IntelliJ IDEA
+
+1. Abra o projeto no IntelliJ
+2. Localize o arquivo Main.java
+3. Execute usando:
+   - Atalho: Shift + F10
+   - Ou clique no ícone de execução
 
 ## Saída Esperada
 
-Ao executar o programa, a saída esperada será:
 ```
 Hello and welcome!
 i = 1
@@ -35,17 +65,34 @@ i = 4
 i = 5
 ```
 
-## Sobre o Código
+## Estrutura do Código
 
-O programa consiste em:
-- Uma mensagem de boas-vindas impressa com `System.out.printf`.
-- Um loop `for` que imprime os valores de `i` de 1 a 5.
-- Comentários de dicas para uso no IntelliJ IDEA.
+```java
+public class Main {
+    public static void main(String[] args) {
+        // Mensagem de boas-vindas
+        System.out.printf("Hello and welcome!");
+
+        // Loop de demonstração
+        for (int i = 1; i <= 5; i++) {
+            System.out.println("i = " + i);
+        }
+    }
+}
+```
+
+## Próximos Passos (Para Evolução do Projeto)
+
+- Adicionar interação com usuário via Scanner
+- Implementar métodos separados para diferentes funcionalidades
+- Adicionar tratamento de exceções
+- Converter para um sistema de mensagens mais complexo
 
 ## Autor
-[Alura]
-[Oracle Next Education - T6]
 
-## Aluno
+Wilker J C Pimenta  
+Oracle Next Education (ONE) - T6 - Alura
 
-[Wilker J C Pimenta]
+## Notas
+
+Este projeto faz parte do currículo educacional e tem fins exclusivamente didáticos.

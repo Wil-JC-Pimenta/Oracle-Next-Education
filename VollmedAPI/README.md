@@ -1,66 +1,127 @@
-# Vollmed API
+# Vollmed API - Sistema de Gestão Médica
 
 ## Visão Geral do Projeto
 
-A Vollmed API é uma API RESTful desenvolvida como parte do programa **Alura, Oracle Next Education - T6**.  
-Ela serve como backend para o gerenciamento de **consultas médicas, médicos e pacientes**.
+API RESTful desenvolvida em Spring Boot para gerenciamento de clínicas médicas, criada como parte do programa Oracle Next Education (ONE). A aplicação oferece endpoints completos para administração de consultas, médicos e pacientes.
 
-## 🛠 Tecnologias
+## Tecnologias Principais
 
-- **Java 17**: Linguagem de programação utilizada no desenvolvimento da aplicação.
-- **Spring Boot**: Framework para construção de aplicações web em Java, fornecendo recursos como injeção de dependências, segurança e acesso a dados.
+- **Linguagem**: Java 17
+- **Framework**: Spring Boot 3.1+
+- **Banco de Dados**: MySQL com Flyway para migrações
+- **Segurança**: Spring Security + JWT
+- **Documentação**: SpringDoc OpenAPI 3.0
 
-## 📦 Dependências
+## Arquitetura
 
-O projeto utiliza **Maven** para gerenciamento de dependências. As principais dependências incluem:
+- **Padrão RESTful**
+- **Arquitetura em camadas**:
+  - Controller → Service → Repository
+- **Validações**:
+  - Bean Validation
+  - Tratamento de exceções global
+- **Testes**:
+  - Unitários (JUnit 5)
+  - Integração (SpringBootTest)
 
-- `spring-boot-starter-web` → Construção de aplicações web.
-- `spring-boot-starter-data-jpa` → Persistência de dados utilizando JPA.
-- `spring-boot-starter-validation` → Validação de dados de entrada.
-- `flyway-core` e `flyway-mysql` → Migração de banco de dados.
-- `mysql-connector-java` → Conexão com banco de dados MySQL.
-- `spring-boot-starter-security` → Segurança da aplicação.
-- `java-jwt` → Manipulação de JSON Web Tokens.
-- `springdoc-openapi-starter-webmvc-ui` → Geração da documentação da API.
+## Configuração do Ambiente
 
-## 🗄 Banco de Dados
+### Pré-requisitos
 
-A aplicação utiliza **MySQL** como banco de dados, com **Flyway** para gerenciamento de migrações.  
-O esquema do banco de dados é definido em scripts de migração localizados no diretório:  
-src/main/resources/db/migration
+- Java 17 JDK
+- MySQL 8.0+
+- Maven 3.8+
 
-## 📌 Endpoints
+### Instalação
 
-### 🔐 Autenticação
+1. Clone o repositório
+2. Configure o banco de dados no `application.properties`
+3. Execute as migrações:
 
-- **`POST`** `/login` → Autentica um usuário e retorna um token JWT.
+```bash
+mvn flyway:migrate
+```
 
-### 📅 Consultas
+4. Inicie a aplicação:
 
-- **`POST`** `/consultas` → Agenda uma nova consulta.
-- **`DELETE`** `/consultas` → Cancela uma consulta agendada.
+```bash
+mvn spring-boot:run
+```
 
-### 🏥 Médicos
+## Endpoints Principais
 
-- **`POST`** `/medicos` → Cadastra um novo médico.
-- **`GET`** `/medicos` → Lista todos os médicos ativos.
-- **`PUT`** `/medicos` → Atualiza as informações de um médico existente.
-- **`DELETE`** `/medicos/{id}` → Exclui um médico pelo ID.
-- **`GET`** `/medicos/{id}` → Retorna informações detalhadas sobre um médico específico.
+### Autenticação
 
-### 👨‍⚕️ Pacientes
+| Método | Endpoint | Descrição      |
+| ------ | -------- | -------------- |
+| POST   | /login   | Gera token JWT |
 
-- **`POST`** `/pacientes` → Cadastra um novo paciente.
-- **`GET`** `/pacientes` → Lista todos os pacientes ativos.
-- **`PUT`** `/pacientes` → Atualiza as informações de um paciente existente.
-- **`DELETE`** `/pacientes/{id}` → Exclui um paciente pelo ID.
-- **`GET`** `/pacientes/{id}` → Retorna informações detalhadas sobre um paciente específico.
+### Médicos
 
-## 📌 Conclusão
+| Método | Endpoint      | Descrição                     |
+| ------ | ------------- | ----------------------------- |
+| POST   | /medicos      | Cadastra novo médico          |
+| GET    | /medicos      | Lista médicos ativos          |
+| PUT    | /medicos/{id} | Atualiza médico               |
+| DELETE | /medicos/{id} | Desativa médico (soft delete) |
 
-Esta API fornece um **backend robusto** para gerenciamento de **consultas médicas, médicos e pacientes**,  
-utilizando **tecnologias modernas** e **boas práticas de desenvolvimento de software**.
+### Pacientes
 
----
+| Método | Endpoint        | Descrição                       |
+| ------ | --------------- | ------------------------------- |
+| POST   | /pacientes      | Cadastra novo paciente          |
+| GET    | /pacientes      | Lista pacientes ativos          |
+| PUT    | /pacientes/{id} | Atualiza paciente               |
+| DELETE | /pacientes/{id} | Desativa paciente (soft delete) |
 
-💻 Desenvolvido por **Alura & Oracle Next Education - T6** 🚀
+### Consultas
+
+| Método | Endpoint   | Descrição            |
+| ------ | ---------- | -------------------- |
+| POST   | /consultas | Agenda nova consulta |
+| DELETE | /consultas | Cancela consulta     |
+
+## Documentação da API
+
+Acesse a documentação interativa após iniciar a aplicação:
+
+```
+http://localhost:8080/swagger-ui.html
+```
+
+## Modelo de Dados
+
+```mermaid
+erDiagram
+    MEDICO ||--o{ CONSULTA : realiza
+    PACIENTE ||--o{ CONSULTA : possui
+    MEDICO {
+        Long id PK
+        String nome
+        String email
+        String crm
+        Especialidade especialidade
+        boolean ativo
+    }
+    PACIENTE {
+        Long id PK
+        String nome
+        String email
+        String cpf
+        boolean ativo
+    }
+    CONSULTA {
+        Long id PK
+        LocalDateTime data
+        MotivoCancelamento motivoCancelamento
+    }
+```
+
+## Autor
+
+Wilker J C Pimenta  
+Oracle Next Education (ONE) - T6 - Alura
+
+## Licença
+
+Projeto desenvolvido para fins educacionais como parte do programa ONE.

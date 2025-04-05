@@ -1,49 +1,116 @@
-# Transações Bancárias
+# TransacoesBancarias - Sistema de Simulação Bancária
 
-## Descrição
+## Visão Geral do Projeto
 
-Este projeto é um sistema simples de transações bancárias que permite ao usuário consultar saldo, receber valores e transferir valores entre contas. O sistema é interativo e lida com entradas inválidas de forma adequada.
+Aplicação Java que simula operações bancárias básicas, desenvolvida como parte do programa Oracle Next Education (ONE). O sistema demonstra conceitos fundamentais de programação como estruturas de controle, tratamento de exceções e manipulação de dados.
 
-## Funcionalidades
+## Objetivos Educacionais
 
-- Consultar saldo atual
-- Receber valores
-- Transferir valores
-- Tratamento de entradas inválidas
+- Praticar implementação de menus interativos
+- Demonstrar tratamento de entrada de usuário
+- Aplicar conceitos de orientação a objetos
+- Simular operações financeiras básicas
 
-## Como Executar o Projeto
+## Funcionalidades Principais
 
-1. Certifique-se de ter o Java instalado em sua máquina.
-2. Compile o arquivo `Main.java`:
-   ```bash
-   javac src/Main.java
-   ```
-3. Execute o programa:
-   ```bash
-   java src.Main
-   ```
+- **Operações bancárias**:
+  - Consulta de saldo
+  - Depósito (recebimento de valores)
+  - Transferência entre contas
+- **Validações**:
+  - Verificação de saldo suficiente
+  - Tratamento de valores inválidos
+  - Prevenção de erros de entrada
+- **Interface amigável**:
+  - Menu interativo
+  - Mensagens claras
+  - Formatação de valores monetários
 
-## Exemplo de Uso
+## Tecnologias Utilizadas
 
-Ao executar o programa, o usuário verá as opções disponíveis:
+- **Linguagem**: Java 17
+- **Bibliotecas**:
+  - java.util.Scanner (para entrada de dados)
+  - java.text (para formatação monetária)
+- **Padrões**:
+  - Clean Code
+  - Tratamento de exceções
 
+## Estrutura do Código
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        double saldo = 2500.00;
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            exibirMenu();
+            int opcao = scanner.nextInt();
+
+            switch (opcao) {
+                case 1: // Consultar saldo
+                    System.out.printf("Saldo atual: R$ %.2f%n", saldo);
+                    break;
+                case 2: // Receber valor
+                    System.out.print("Valor a receber: ");
+                    saldo += scanner.nextDouble();
+                    break;
+                // ... outros casos
+            }
+        }
+    }
+}
 ```
-OPERAÇÕES
 
-1- Consultar Saldo
-2- Receber Valor
-3- Transferir Valor
-4- Sair
+## Como Executar
 
-Digite a opção desejada:
+### Pré-requisitos
+
+- Java 17 JDK instalado
+- Terminal/Command Prompt
+
+### Passo a Passo
+
+1. Navegue até o diretório do projeto:
+
+```bash
+cd TransacoesBancarias
 ```
 
-O usuário pode então escolher uma opção e seguir as instruções na tela.
+2. Compile o código fonte:
+
+```bash
+javac src/Main.java
+```
+
+3. Execute a aplicação:
+
+```bash
+java -cp src Main
+```
+
+4. Siga as instruções no console para interagir com o sistema
+
+## Fluxo do Programa
+
+1. Exibe menu de operações
+2. Aguarda seleção do usuário
+3. Executa operação selecionada
+4. Retorna ao menu principal
+
+## Melhorias Futuras
+
+- Implementar sistema de autenticação
+- Adicionar persistência em banco de dados
+- Criar sistema de extrato
+- Desenvolver interface gráfica
 
 ## Autor
-[Alura]
-[Oracle Next Education - T6]
 
-## Aluno
+Wilker J C Pimenta  
+Oracle Next Education (ONE) - T6 - Alura
 
-[Wilker J C Pimenta]
+## Notas
+
+Este projeto faz parte do currículo educacional e tem fins exclusivamente didáticos. Não possui conexão com sistemas bancários reais.
